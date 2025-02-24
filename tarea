@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class OrdenamientoPorInsercion {
+
+    public static int[] ordenarPorInsercion(int[] lista) {
+        for (int i = 1; i < lista.length; i++) {
+            int elementoClave = lista[i];
+            int posicion = i - 1;
+
+            
+            while (posicion >= 0 && lista[posicion] > elementoClave) {
+                lista[posicion + 1] = lista[posicion];
+                posicion--;
+            }
+            lista[posicion + 1] = elementoClave;
+        }
+        return lista;
+    }
+
+    public static void main(String[] args) {
+        int[] numeros = {5, 1, 8, 9, 12};
+        int[] resultadoOrdenado = ordenarPorInsercion(numeros);
+        System.out.println("Lista ordenada: " + Arrays.toString(resultadoOrdenado));
+    }
+}
